@@ -5,8 +5,11 @@ import {TransactionContext} from './transContext';
 function Child() {
 
     let {transactions, addTransaction} = useContext(TransactionContext); 
+    
+    let {deleteTransaction} = useContext(TransactionContext);
+    
     let [newDesc, setDesc] = useState("");
-    let [newAmount, setAmount] = useState(0);
+    let [newAmount, setAmount] = useState();
     
     const handleAddition = (event) => {
         event.preventDefault();
@@ -49,25 +52,27 @@ function Child() {
         Expense Tracker
       </h1>
       
-    <h3>Your Balance<br/>{ getIncome() + getExpense()}</h3>
+    <h3>Your Balance<br/>${ getIncome() + getExpense()}</h3>
       
       <div className="expense-container">
-        <h3>Income<br/>{getIncome()}</h3>
-       <h3>Expense<br/>{getExpense()}</h3>
+        <h3>Income<br/>${getIncome()}</h3>
+       <h3>Expense<br/>${getExpense()}</h3>
       </div>
 
-      <h3>History</h3>
+      <h3>Transaction History</h3>
       <hr />
 
       <ul className="transaction-list">
         {transactions.map((transObj, ind)=>{return(
+        
         <li key={ind}>
             <span>
                 {transObj.desc} 
             </span>
             <span>
-            {transObj.amount}
+                ${transObj.amount}
             </span>
+            <button className={"delete-button"} onClick={() => deleteTransaction(transObj.ind)}>x</button>
         </li>)})}
 
       </ul>

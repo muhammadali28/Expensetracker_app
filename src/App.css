@@ -40,6 +40,11 @@
 }
 
 .button{
-  background-color:plum;
+  background-color:#9c88ff;
+  box-shadow: 0 0 10px gray;
+}
+
+.delete-button{
+  background-color:lightcoral;
   box-shadow: 0 0 10px gray;
 }
