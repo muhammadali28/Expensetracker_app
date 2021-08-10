@@ -27,12 +27,12 @@ export const TransactionProvider =({children})=> {
             type:
             "DELETE_TRANSACTION",
             payload: ind
-        })
+        });
     }
 
     return(
         <TransactionContext.Provider value={{
-            transactions: state,
+            transactions: state.transactions,
             addTransaction,deleteTransaction
         }}>
             {children}

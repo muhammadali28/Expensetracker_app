@@ -2,11 +2,10 @@ import React, {useContext, useState} from 'react';
 import './App.css';
 import {TransactionContext} from './transContext';
 
+
 function Child() {
 
     let {transactions, addTransaction} = useContext(TransactionContext); 
-    
-    let {deleteTransaction} = useContext(TransactionContext);
     
     let [newDesc, setDesc] = useState("");
     let [newAmount, setAmount] = useState();
@@ -72,7 +71,8 @@ function Child() {
             <span>
                 ${transObj.amount}
             </span>
-            <button className={"delete-button"} onClick={() => deleteTransaction(transObj.ind)}>x</button>
+            <button className={"delete-button"} /*onClick={() => deleteTransaction(transObj.ind)}*/ >x
+            </button>
         </li>)})}
 
       </ul>
